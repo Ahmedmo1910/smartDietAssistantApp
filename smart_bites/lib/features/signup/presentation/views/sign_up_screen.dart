@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/auth_header_widget.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/or_row_widget.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/social_row_widget.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/text_bottom_widget.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/text_form_email.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/text_form_password.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/auth_header_widget.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/or_row_widget.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/social_row_widget.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/text_bottom_widget.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_email.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_password.dart';
 import 'package:smart_bites/features/signup/presentation/views/widgets/check_box_widget.dart';
 import 'package:smart_bites/features/signup/presentation/views/widgets/text_form_name.dart';
 import 'package:smart_bites/widgets/elevated_bottom_widget.dart';

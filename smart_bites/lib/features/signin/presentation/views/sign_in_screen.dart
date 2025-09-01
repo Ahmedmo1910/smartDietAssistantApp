@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/features/forgetpassword/persentation/views/forget_password_screen.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/auth_header_widget.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/or_row_widget.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/social_row_widget.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/text_bottom_widget.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/text_form_email.dart';
-import 'package:smart_bites/features/login/presentation/views/widgets/text_form_password.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/auth_header_widget.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/or_row_widget.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/social_row_widget.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/text_bottom_widget.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_email.dart';
+import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_password.dart';
 import 'package:smart_bites/features/signup/presentation/views/sign_up_screen.dart';
 import 'package:smart_bites/widgets/elevated_bottom_widget.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
