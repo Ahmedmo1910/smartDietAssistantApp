@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/features/signin/presentation/views/sign_in_screen.dart';
 import 'package:smart_bites/features/splash/presentation/views/splash_screen.dart';
 import 'core/helper_functions/on_generate_routes.dart';
 
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       title: 'SmartBites',
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashScreen.routeName,
+      // initialRoute: SplashScreen.routeName, 
+      home: SignInScreen(),
     );
   }
 }
