@@ -14,6 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Montserrat',
+        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+        /*colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFFFFFFFF),
+        ),*/
+      ),
       title: 'SmartBites',
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
