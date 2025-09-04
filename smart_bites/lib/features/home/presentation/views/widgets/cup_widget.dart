@@ -11,8 +11,8 @@ class CupWidget extends StatelessWidget {
     return ClipPath(
       clipper: CupClipper(),
       child: Container(
-        width: 45,
-        height: 50,
+        width: 40,
+        height: 45,
         decoration: BoxDecoration(
           color: filled
               ? Colors.white
