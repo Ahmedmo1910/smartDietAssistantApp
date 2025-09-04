@@ -39,7 +39,7 @@ class MainButton extends StatelessWidget {
         child: text != null
             ? Text(
                 text!,
-                style: AppTextStyles.medium18.copyWith(color: Colors.white),
+                style: AppTextStyles.medium14.copyWith(color: Colors.white),
               )
             : child,
       ),

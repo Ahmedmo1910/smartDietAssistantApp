@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_bites/core/utils/app_colors.dart';
+import 'package:smart_bites/core/utils/app_text_styles.dart';
+import 'package:smart_bites/features/home/presentation/cubit/water_cubit.dart';
 import 'package:smart_bites/features/home/presentation/views/widgets/custom_button.dart';
 import 'custom_text_field.dart';
 
@@ -7,39 +11,70 @@ class CustomizeYourGoal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final goalController = TextEditingController();
+    final cupSizeController = TextEditingController();
     return GestureDetector(
       onTap: () {
         showDialog(
           context: context,
-          builder: (BuildContext context) {
-            return Dialog(
-              backgroundColor: Color(0xFFFFFFFF),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      height: 50,
-                      child: CustomTextFormField(
-                        hintText: 'Your Goal',
-                        keyboardType: TextInputType.number,
+          builder: (dialogContext) {
+            return BlocProvider.value(
+              value: context.read<WaterCubit>(),
+              child: Dialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                backgroundColor: Colors.white,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 350, maxHeight: 280),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "Customize Goal",
+                            textAlign: TextAlign.center,
+                            style: AppTextStyles.bold20.copyWith(
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          CustomTextFormField(
+                            controller: goalController,
+                            hintText: 'Your Goal (L)',
+                            keyboardType: TextInputType.number,
+                          ),
+                          const SizedBox(height: 12),
+                          CustomTextFormField(
+                            controller: cupSizeController,
+                            hintText: 'Cup Size (ml)',
+                            keyboardType: TextInputType.number,
+                          ),
+                          const SizedBox(height: 20),
+                          MainButton(
+                            width: 100,
+                            height: 40,
+                            text: 'Save',
+                            hasCircularBorder: true,
+                            onTap: () {
+                              final goalLiters =
+                                  double.tryParse(goalController.text) ?? 2.0;
+                              final goalMl = (goalLiters * 1000).toInt();
+                              final cupSize =
+                                  int.tryParse(cupSizeController.text) ?? 200;
+                              context.read<WaterCubit>().updateGoalAndCup(
+                                goalMl: goalMl,
+                                cupSize: cupSize,
+                              );
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(height: 10),
-                    CustomTextFormField(
-                      hintText: 'Cup Size',
-                      keyboardType: TextInputType.number,
-                    ),
-                    SizedBox(height: 10),
-                    MainButton(
-                      width: 90.32,
-                      height: 30.38,
-                      text: 'Edit',
-                      hasCircularBorder: true,
-                      onTap: () {},
-                    ),
-                  ],
+                  ),
                 ),
               ),
             );
