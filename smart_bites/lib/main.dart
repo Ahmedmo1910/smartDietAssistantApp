@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
       title: 'SmartBites',
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashScreen.routeName,
+      // initialRoute: SplashScreen.routeName, 
+      home: SignInScreen(),
     );
   }
 }
