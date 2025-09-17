@@ -40,6 +40,8 @@ dependencies:
   bloc: ^9.0.0
   shared_preferences: ^2.5.3
   get_it: ^8.2.0
+  flutter_svg_provider: ^1.0.7
+  dot_navigation_bar: ^1.0.2
 
 dev_dependencies:
   flutter_test:
