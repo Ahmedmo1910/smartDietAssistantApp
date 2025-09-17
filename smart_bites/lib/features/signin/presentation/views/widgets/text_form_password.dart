@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/core/utils/app_text_styles.dart';
 import 'package:smart_bites/features/validation/validation_password.dart';
 
-class TextFormPassword extends StatefulWidget {
+class TextFormPassword extends StatelessWidget {
   const TextFormPassword({
     super.key,
     required this.passwordController,
@@ -18,27 +19,21 @@ class TextFormPassword extends StatefulWidget {
   final String? Function(String?)? validator;
 
   @override
-  State<TextFormPassword> createState() => _TextFormPasswordState();
-}
-
-class _TextFormPasswordState extends State<TextFormPassword> {
-  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: widget.passwordController,
-      obscureText: !widget.hiddenPassword,
-      validator: widget.validator ?? validationPasswordMethod(),
+      controller: passwordController,
+      obscureText: !hiddenPassword,
+      validator: validator ?? validationPasswordMethod(),
       decoration: InputDecoration(
         suffixIcon: IconButton(
-          onPressed: widget.onToggle,
+          onPressed: onToggle,
           icon: Icon(
-            widget.hiddenPassword ? Icons.visibility : Icons.visibility_off,
+            hiddenPassword ? Icons.visibility : Icons.visibility_off,
           ),
         ),
         prefixIcon: const Icon(Icons.lock),
-        labelText: widget.textPassword,
-
-        hintStyle: const TextStyle(fontSize: 20),
+        labelText: textPassword,
+        hintStyle: AppTextStyles.regular20,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
       ),
     );
