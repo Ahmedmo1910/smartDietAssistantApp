@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/core/utils/app_colors.dart';
 
 class CheckBoxWidget extends StatefulWidget {
   const CheckBoxWidget({super.key, required this.textCheckBox});
@@ -12,7 +13,7 @@ class _CheckBoxWidgetState extends State<CheckBoxWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return  Center(
       child: Column(
         children: [
           const SizedBox(height: 15),
@@ -27,7 +28,7 @@ class _CheckBoxWidgetState extends State<CheckBoxWidget> {
                 },
                 icon: Icon(
                   isChecked ? Icons.check_box : Icons.check_box_outline_blank,
-                  color: Color(0xff8DC048),
+                  color: AppColors.primaryColor,
                 ),
               ),
 

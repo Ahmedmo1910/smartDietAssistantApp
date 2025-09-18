@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/core/utils/app_text_styles.dart';
 
 class AuthHeaderWidget extends StatelessWidget {
   const AuthHeaderWidget({
@@ -14,18 +15,9 @@ class AuthHeaderWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 50),
-        Text(
-          headerTitle,
-          style: TextStyle(
-            fontSize: 25,
-            letterSpacing: 1.6,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          headerSubTitle,
-          style: TextStyle(fontSize: 18, letterSpacing: 1.6),
-        ),
+        Text(headerTitle, style: AppTextStyles.bold25),
+          SizedBox(height: 10),
+        Text(headerSubTitle, style: AppTextStyles.regular18),
         SizedBox(height: 30),
       ],
     );

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/core/utils/app_colors.dart';
+import 'package:smart_bites/core/utils/app_text_styles.dart';
 
 class TextBottomWidget extends StatelessWidget {
   final String textStatic;
   final String textBottom;
-  final Widget? destination;
+  // final Widget? destination;
+  final String? routeName;
   final bool? isPop;
   const TextBottomWidget({
     super.key,
     required this.textStatic,
     required this.textBottom,
-    this.destination,
+    this.routeName,
     this.isPop = false,
   });
 
@@ -18,25 +21,21 @@ class TextBottomWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(textStatic),
+        Text(textStatic, style: AppTextStyles.medium14),
         TextButton(
           onPressed: () {
             if (isPop!) {
               Navigator.pop(context);
-            } else if (destination != null) {
-              Navigator.push(
+            } else if (routeName != null) {
+              Navigator.pushNamed(
                 context,
-                MaterialPageRoute(builder: (cotext) => destination!),
+                routeName!
               );
             }
           },
           child: Text(
             textBottom,
-            style: TextStyle(
-              color: Color(0xff8DC048),
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
+            style: AppTextStyles.bold20.copyWith(color: AppColors.primaryColor),
           ),
         ),
       ],

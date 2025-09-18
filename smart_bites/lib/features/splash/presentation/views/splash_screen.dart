@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_bites/features/home/presentation/views/home_screen.dart';
 import 'package:smart_bites/features/splash/presentation/views/widgets/splash_screen_body.dart';
+import 'package:smart_bites/main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void executeNavigation() {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+      Navigator.pushReplacementNamed(context, MainScreen.routeName);
     });
   }
 }
