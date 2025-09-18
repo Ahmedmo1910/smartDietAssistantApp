@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TextFormName extends StatefulWidget {
+class TextFormName extends StatelessWidget {
   const TextFormName({
     super.key,
     required this.nameController,
@@ -13,14 +13,9 @@ class TextFormName extends StatefulWidget {
   final Icon prefixIcon;
 
   @override
-  State<TextFormName> createState() => _TextFormNameState();
-}
-
-class _TextFormNameState extends State<TextFormName> {
-  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: widget.nameController,
+      controller: nameController,
       validator: (value) {
         if (value!.isEmpty) {
           return 'Name is required';
@@ -29,9 +24,8 @@ class _TextFormNameState extends State<TextFormName> {
       },
 
       decoration: InputDecoration(
-        prefixIcon: widget.prefixIcon,
-
-        labelText: widget.textName,
+        prefixIcon: prefixIcon,
+        labelText: textName,
         hintStyle: const TextStyle(fontSize: 20),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
       ),

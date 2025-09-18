@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/core/utils/app_colors.dart';
 import 'package:smart_bites/features/signin/presentation/views/widgets/auth_header_widget.dart';
 import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_email.dart';
 import 'package:smart_bites/widgets/elevated_bottom_widget.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
+   
   const ForgetPasswordScreen({super.key});
 
   @override
@@ -16,13 +18,23 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor:AppColors.whiteColor,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_rounded),
+        ),
+      ),
+
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 50),
+              
               //Header Screen .............:)
               AuthHeaderWidget(
                 headerTitle: 'Forget Password ?',
@@ -39,9 +51,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   prefixIcon: Icon(Icons.email),
                 ),
               ),
-              SizedBox(height: 70),
+              SizedBox(height: 40),
               //Continue Bottom ..................:)
-              ElevatedBottomWedgit(formKey: _formKey, textBottom: 'Continue'),
+              ElevatedBottomWedgit(formKey: _formKey, textBottom: 'Continue',),
             ],
           ),
         ),

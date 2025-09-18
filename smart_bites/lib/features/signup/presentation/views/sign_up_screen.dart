@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/features/home/presentation/views/home_screen.dart';
 import 'package:smart_bites/features/signin/presentation/views/widgets/auth_header_widget.dart';
 import 'package:smart_bites/features/signin/presentation/views/widgets/or_row_widget.dart';
 import 'package:smart_bites/features/signin/presentation/views/widgets/social_row_widget.dart';
@@ -7,9 +8,12 @@ import 'package:smart_bites/features/signin/presentation/views/widgets/text_form
 import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_password.dart';
 import 'package:smart_bites/features/signup/presentation/views/widgets/check_box_widget.dart';
 import 'package:smart_bites/features/signup/presentation/views/widgets/text_form_name.dart';
+import 'package:smart_bites/features/validation/validation_password.dart';
 import 'package:smart_bites/widgets/elevated_bottom_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
+  static const  String routeSignIn='SignIn';
+    static const String routeName = 'SignUpScreen';
   const SignUpScreen({super.key});
 
   @override
@@ -25,6 +29,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   bool hiddenPassword = false;
+  bool hiddenConfirmPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +40,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //Header screen.................:)
               AuthHeaderWidget(
                 headerTitle: 'Create your new\naccount.',
                 headerSubTitle: 'Please, sign up to continue.',
               ),
-              //Form .................:)
               Form(
                 key: _formKey,
                 child: Column(
@@ -48,15 +51,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     TextFormName(
                       nameController: nameController,
                       textName: 'Full Name',
-                      prefixIcon: Icon(Icons.person),
+                      prefixIcon: const Icon(Icons.person),
                     ),
                     const SizedBox(height: 15),
                     TextFormEmail(
                       emailController: emailController,
                       textEmail: 'Email',
-                      prefixIcon: Icon(Icons.email),
+                      prefixIcon: const Icon(Icons.email),
                     ),
                     const SizedBox(height: 15),
+                    // Password
                     TextFormPassword(
                       passwordController: passwordController,
                       hiddenPassword: hiddenPassword,
@@ -66,52 +70,51 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           hiddenPassword = !hiddenPassword;
                         });
                       },
+                      validator: validationPasswordMethod(),
                     ),
                     const SizedBox(height: 15),
+                    // Confirm Password
                     TextFormPassword(
                       passwordController: confirmPasswordController,
-                      hiddenPassword: hiddenPassword,
+                      hiddenPassword: hiddenConfirmPassword,
                       textPassword: 'Confirm Password',
                       onToggle: () {
                         setState(() {
-                          hiddenPassword = !hiddenPassword;
+                          hiddenConfirmPassword = !hiddenConfirmPassword;
                         });
                       },
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return ('Confirm password is required');
-                        }
-                        if (value != passwordController.text) {
-                          return "Password does'nt match";
-                        }
-                        return null;
-                      },
+                      validator: validationConfirmPasswordMethod(
+                        passwordController,
+                      ),
                     ),
-                    // Chech Box Widget ............ :)
                     CheckBoxWidget(
                       textCheckBox: 'I Agree with privacy policy.',
                     ),
-                    //Sign Up Bottom ..................:)
                     ElevatedBottomWedgit(
                       formKey: _formKey,
                       textBottom: 'Sign Up',
-                      // destination: HomeScreen(),
+                      routeName: HomeScreen.routeName,
+                       onSuccess: () {
+                        emailController.clear();
+                        passwordController.clear();
+                        confirmPasswordController.clear();
+                        nameController.clear();
+                      },
                     ),
                     const SizedBox(height: 15),
-                    //Or Row Widget..............:)
                     OrRowWidget(textOr: 'Sign Up'),
                     const SizedBox(height: 15),
-
-                    //Social Row Widget..............:)
                     SocialRowWidget(),
                   ],
                 ),
               ),
-              //Text Bottom Widget .................:)
               TextBottomWidget(
+                routeName:SignUpScreen.routeSignIn ,
                 textStatic: 'Already have an account ?',
                 textBottom: 'Sign in',
                 isPop: true,
+
+                
               ),
             ],
           ),
@@ -120,3 +123,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
+
