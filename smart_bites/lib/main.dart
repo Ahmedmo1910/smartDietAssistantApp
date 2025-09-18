@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/core/helper_functions/get_it_helper.dart';
-import 'package:smart_bites/features/signin/presentation/views/sign_in_screen.dart';
-// import 'package:smart_bites/features/signin/presentation/views/sign_in_screen.dart';
-//import 'package:smart_bites/features/splash/presentation/views/splash_screen.dart';
+import 'package:smart_bites/features/home/presentation/AppCubit/app_cubit.dart';
+import 'package:smart_bites/features/setGoal/presentation/views/set_goal_screen.dart';
 import 'core/helper_functions/on_generate_routes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,16 +17,26 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'Montserrat',
-        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+    return BlocProvider(
+      create: (context) => AppCubit()..loadPreferences(),
+      child: BlocBuilder<AppCubit, AppState>(
+        builder: (context, state) {
+          final cubit = context.watch<AppCubit>();
+          return MaterialApp(
+            theme: ThemeData(
+              fontFamily: 'Montserrat',
+              scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+            ),
+            darkTheme: ThemeData.dark(),
+            themeMode: cubit.isDark ? ThemeMode.dark : ThemeMode.light,
+            title: 'SmartBites',
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: onGenerateRoute,
+            initialRoute: SetGoalPage.routeName,
+            // home: SignInScreen(),
+          );
+        },
       ),
-      title: 'SmartBites',
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: onGenerateRoute,
-       initialRoute: SignInScreen.routeName, 
-      //home: SignInScreen(),
-    );
+   );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_bites/core/helper_functions/get_it_helper.dart';
 import 'package:smart_bites/features/home/presentation/cubit/water_cubit.dart';
 import 'package:smart_bites/features/home/presentation/cubit/water_state.dart';
+import 'package:smart_bites/features/home/presentation/views/widgets/custom_drawer.dart';
 import 'package:smart_bites/features/home/services/water_storage.dart';
 import 'widgets/build_app_bar_widget.dart';
 import 'widgets/home_screen_body.dart';
@@ -28,6 +29,7 @@ class HomeScreen extends StatelessWidget {
           }
         },
         child: Scaffold(
+          drawer: CustomDrawer(),
           appBar: buildAppBarWidget(),
           body: SafeArea(child: HomeScreenBody()),
         ),
