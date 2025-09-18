@@ -14,7 +14,6 @@ class AuthHeaderWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 50),
         Text(headerTitle, style: AppTextStyles.bold25),
           SizedBox(height: 10),
         Text(headerSubTitle, style: AppTextStyles.regular18),
