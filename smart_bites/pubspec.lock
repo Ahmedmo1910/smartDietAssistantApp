@@ -97,6 +97,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  dot_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: dot_navigation_bar
+      sha256: "753e1d91644e39beddd0a4ed7e366f37a95e38cafb601c3b7496120ae0532f63"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   fake_async:
     dependency: transitive
     description:
@@ -157,7 +165,15 @@ packages:
       sha256: b9c2ad5872518a27507ab432d1fb97e8813b05f0fc693f9d40fad06d073e0678
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.0"
+  flutter_svg_provider:
+    dependency: "direct main"
+    description:
+      name: flutter_svg_provider
+      sha256: cda47ab350671ba51ae4605d48f4c82fa5a2c399d22ebda367c1b407234c5048
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.7"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -212,10 +228,10 @@ packages:
     dependency: transitive
     description:
       name: leak_tracker
-      sha256: "33e2e26bdd85a0112ec15400c8cbffea70d0f9c3407491f672a2fad47915e2de"
+      sha256: "8dcda04c3fc16c14f48a7bb586d4be1f0d1572731b6d81d51772ef47c02081e0"
       url: "https://pub.dev"
     source: hosted
-    version: "11.0.2"
+    version: "11.0.1"
   leak_tracker_flutter_testing:
     dependency: transitive
     description:
