@@ -23,9 +23,9 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: SafeArea(child: screens[currentIndex]),
+      body: screens[currentIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton:  FloatingNavigationBar(
+      floatingActionButton: FloatingNavigationBar(
         currentIndex: currentIndex,
         onItemSelected: (index) {
           setState(() {

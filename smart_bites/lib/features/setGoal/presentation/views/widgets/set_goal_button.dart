@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/features/home/presentation/views/widgets/custom_button.dart';
 
 import 'alert.dart';
 
@@ -14,8 +15,12 @@ class SetGoalButton extends StatelessWidget {
   final Function(String) onSave;
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
+    return MainButton(
+      width: 140,
+      height: 50,
+      hasCircularBorder: true,
+      text: 'Set your goal',
+      onTap: () {
         showDialog(
           context: context,
           builder: (context) {
@@ -29,14 +34,6 @@ class SetGoalButton extends StatelessWidget {
           },
         );
       },
-
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-        backgroundColor: Colors.green,
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      ),
-      child: Text('Set Your Goal', style: TextStyle(fontSize: 15)),
     );
   }
 }

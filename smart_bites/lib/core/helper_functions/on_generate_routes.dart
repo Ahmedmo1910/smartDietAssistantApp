@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/features/forget_password/presentation/views/forget_password_screen.dart';
 import 'package:smart_bites/features/home/presentation/views/home_screen.dart';
+import 'package:smart_bites/features/setGoal/presentation/views/set_goal_screen.dart';
 import 'package:smart_bites/features/signin/presentation/views/sign_in_screen.dart';
 import 'package:smart_bites/features/signup/presentation/views/sign_up_screen.dart';
 import 'package:smart_bites/features/splash/presentation/views/splash_screen.dart';
@@ -22,6 +23,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const ForgetPasswordScreen(),
       );
+    case SetGoalScreen.routeName:
+      return MaterialPageRoute(builder: (context) => const SetGoalScreen());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }

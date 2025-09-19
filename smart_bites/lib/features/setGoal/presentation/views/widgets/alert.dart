@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/core/utils/app_colors.dart';
+import 'package:smart_bites/core/utils/app_text_styles.dart';
+import 'package:smart_bites/features/home/presentation/views/widgets/custom_button.dart';
+import 'package:smart_bites/features/home/presentation/views/widgets/custom_text_field.dart';
 
 class CustomAlertDialog extends StatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -22,6 +26,7 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Colors.white,
       content: SizedBox(
         height: 300,
         width: 300,
@@ -30,46 +35,32 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
           child: Column(
             children: [
               const SizedBox(height: 15),
-              const Icon(Icons.fastfood, size: 70, color: Colors.green),
+              const Icon(
+                Icons.fastfood,
+                size: 70,
+                color: AppColors.primaryColor,
+              ),
               const SizedBox(height: 15),
-              const Text(
-                'Set Your Day Calories',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
+              Text(
+                'Set Your Daily Calories',
+                style: AppTextStyles.bold20.copyWith(
+                  color: AppColors.primaryColor,
                 ),
               ),
               const SizedBox(height: 15),
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please Enter Value ";
-                  }
-                  final number = double.tryParse(value);
-                  if (number == null || number < 0) {
-                    return "Please enter a valid number";
-                  }
-                  if (number < 200) {
-                    return "Value must be bigger than 200";
-                  } else {
-                    return null;
-                  }
-                },
-                onSaved: (value) {
-                  userInput = value!;
-                },
+              CustomTextFormField(
+                
                 controller: widget.controller,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(color: Colors.black),
-                  ),
-                ),
+                hintText: "Calories",
+                keyboardType: TextInputType.number,
               ),
               const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
+              MainButton(
+                height: 50,
+                width: 120,
+                text: 'Save',
+                hasCircularBorder: true,
+                onTap: () {
                   if (widget.formKey.currentState!.validate()) {
                     widget.formKey.currentState!.save();
                     widget.onSave(userInput);
@@ -78,24 +69,12 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          'Please fix the error and Enter a valid number',
+                          'Please Enter your daily calories.😊',
                         ),
                       ),
                     );
                   }
                 },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 50,
-                    vertical: 15,
-                  ),
-                  backgroundColor: Colors.green,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                child: const Text('save'),
               ),
             ],
           ),

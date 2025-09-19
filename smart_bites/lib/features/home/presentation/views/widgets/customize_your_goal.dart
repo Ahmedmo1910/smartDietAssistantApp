@@ -64,6 +64,17 @@ class CustomizeYourGoal extends StatelessWidget {
                               final goalMl = (goalLiters * 1000).toInt();
                               final cupSize =
                                   int.tryParse(cupSizeController.text) ?? 200;
+
+                              if (cupSize <= 0) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text(
+                                      "cup size must be greater than 0.😊",
+                                    ),
+                                  ),
+                                );
+                                return;
+                              }
                               context.read<WaterCubit>().updateGoalAndCup(
                                 goalMl: goalMl,
                                 cupSize: cupSize,

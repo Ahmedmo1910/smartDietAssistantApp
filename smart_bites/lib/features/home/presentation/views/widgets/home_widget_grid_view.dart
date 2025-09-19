@@ -22,10 +22,12 @@ class HomeWidgetGridView extends StatelessWidget {
       ),
       itemCount: getHomeWidget.length,
       itemBuilder: (context, index) {
+        final item = getHomeWidget[index];
         return CustomHomeWidget(
-          text: getHomeWidget[index].text,
-          widget: getHomeWidget[index].widget,
-          button: getHomeWidget[index].button,
+          text: item.text,
+          widget: item.widget,
+          buttonText: item.buttonText,
+          routeName: item.routeName,
         );
       },
     );

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/core/utils/app_text_styles.dart';
+import 'custom_button.dart';
 
 class CustomHomeWidget extends StatelessWidget {
   final String text;
   final Widget widget;
-  final Widget button;
+  final String buttonText;
+  final String? routeName;
   const CustomHomeWidget({
     super.key,
     required this.text,
-    required this.button,
     required this.widget,
+    required this.buttonText,
+    this.routeName,
   });
 
   @override
@@ -36,7 +39,17 @@ class CustomHomeWidget extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 6),
-              button,
+              MainButton(
+                hasCircularBorder: true,
+                width: 111,
+                height: 35,
+                text: buttonText,
+                onTap: () {
+                  if (routeName != null) {
+                    Navigator.pushNamed(context, routeName!);
+                  }
+                },
+              ),
             ],
           ),
         ),

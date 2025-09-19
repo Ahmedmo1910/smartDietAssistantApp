@@ -1,5 +1,7 @@
 // custom widget ==> slider
 import 'package:flutter/material.dart';
+import 'package:smart_bites/core/utils/app_colors.dart';
+import 'package:smart_bites/core/utils/app_text_styles.dart';
 
 class CaloriesSlider extends StatelessWidget {
   final double currentValue;
@@ -18,21 +20,12 @@ class CaloriesSlider extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
                 "Taken",
-                style: TextStyle(
-                  color: Colors.green,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppTextStyles.semiBold14.copyWith(color: Colors.green),
               ),
-              Text(
-                "Your Calories",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Text("Your Calories", style: AppTextStyles.semiBold14),
             ],
           ),
         ),
@@ -40,10 +33,10 @@ class CaloriesSlider extends StatelessWidget {
           ignoring: true,
           child: SliderTheme(
             data: SliderTheme.of(context).copyWith(
-              activeTrackColor: Colors.green,
-              inactiveTrackColor: Colors.grey,
-              thumbColor: Colors.green,
-              overlayColor: Colors.green,
+              activeTrackColor: AppColors.primaryColor,
+              inactiveTrackColor: Colors.grey[400],
+              thumbColor: AppColors.primaryColor,
+              overlayColor: AppColors.primaryColor,
               trackHeight: 10,
             ),
             child: Slider(
@@ -56,25 +49,18 @@ class CaloriesSlider extends StatelessWidget {
         ),
 
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
+                textAlign: TextAlign.center,
                 "${currentValue.toInt()}",
-                style: const TextStyle(
-                  color: Colors.green,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppTextStyles.semiBold18.copyWith(color: Colors.green),
               ),
               Text(
                 "${maxtValue.toInt()}",
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppTextStyles.semiBold18
               ),
             ],
           ),
