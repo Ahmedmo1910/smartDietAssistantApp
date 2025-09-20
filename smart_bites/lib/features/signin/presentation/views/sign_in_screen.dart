@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/core/utils/app_colors.dart';
 import 'package:smart_bites/core/utils/app_text_styles.dart';
+import 'package:smart_bites/features/forgetpassword/persentation/views/forget_password_screen.dart';
 import 'package:smart_bites/features/home/presentation/views/home_screen.dart';
 import 'package:smart_bites/features/signin/presentation/views/widgets/auth_header_widget.dart';
 import 'package:smart_bites/features/signin/presentation/views/widgets/or_row_widget.dart';
@@ -8,12 +9,11 @@ import 'package:smart_bites/features/signin/presentation/views/widgets/social_ro
 import 'package:smart_bites/features/signin/presentation/views/widgets/text_bottom_widget.dart';
 import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_email.dart';
 import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_password.dart';
-import 'package:smart_bites/widgets/elevated_bottom_widget.dart';
+import 'package:smart_bites/features/signup/presentation/views/sign_up_screen.dart';
+import 'package:smart_bites/widgets/elevated_botton_widget.dart';
 
 class SignInScreen extends StatefulWidget {
-  static const String routeForgetPasword = 'forgetPassword';
-  static const String routeSignUp = 'signUpBottom';
-  static const String routeSignInBottom = 'signInBottom';
+
   static const String routeName = 'SignInScreen';
 
   const SignInScreen({super.key});
@@ -49,13 +49,11 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Column(
                   children: [
                     TextFormEmail(
-                      emailController: emailController,
                       textEmail: 'Email',
                       prefixIcon: Icon(Icons.email),
                     ),
                     const SizedBox(height: 30),
                     TextFormPassword(
-                      passwordController: passwordController,
                       hiddenPassword: hiddenPassword,
                       textPassword: 'Password',
                       onToggle: () {
@@ -66,7 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     const SizedBox(height: 50),
                     //Sign In Bottom ..................:)
-                    ElevatedBottomWedgit(
+                    ElevatedBottonWedgit(
                       formKey: _formKey,
                       textBottom: 'Sign In',
                       routeName: HomeScreen.routeName,
@@ -86,13 +84,13 @@ class _SignInScreenState extends State<SignInScreen> {
               TextBottomWidget(
                 textStatic: 'Don’t have an account?',
                 textBottom: 'Sign Up',
-                routeName: SignInScreen.routeSignUp,
+                routeName:  SignUpScreen.routeName,
               ),
               //Text Forget Bottom ..................:)
               Center(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, 'forgetPassword');
+                    Navigator.pushNamed(context, ForgetPasswordScreen.routeName );
                   },
                   child: Text(
                     'Forget Password',

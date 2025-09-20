@@ -8,21 +8,18 @@ import 'package:smart_bites/features/splash/presentation/views/splash_screen.dar
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case SplashScreen.routeName:
-      return MaterialPageRoute(builder: (context) => const SplashScreen());
+      return MaterialPageRoute(
+        builder: (context) => const SplashScreen());
     case HomeScreen.routeName:
       return MaterialPageRoute(builder: (context) => const HomeScreen());
     case SignInScreen.routeName:
       return MaterialPageRoute(builder: (context) => const SignInScreen());
     case SignUpScreen.routeName:
       return MaterialPageRoute(builder: (context) => const SignUpScreen());
-    case SignInScreen.routeForgetPasword:
+    case ForgetPasswordScreen.routeName:
       return MaterialPageRoute(
         builder: (context) => const ForgetPasswordScreen(),
       );
-    case SignUpScreen.routeSignIn:
-      return MaterialPageRoute(builder: (context) => const SignInScreen());
-    case SignInScreen.routeSignUp:
-      return MaterialPageRoute(builder: (context) => const SignUpScreen());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }

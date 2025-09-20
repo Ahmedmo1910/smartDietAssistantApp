@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:smart_bites/core/utils/app_colors.dart';
 import 'package:smart_bites/core/utils/app_text_styles.dart';
 
-class ElevatedBottomWedgit extends StatelessWidget {
+class ElevatedBottonWedgit extends StatelessWidget {
   final String textBottom;
   final GlobalKey<FormState>? formKey;
   final bool showDialogOnSuccess;
   final String? routeName;
     final VoidCallback? onSuccess;
+   
 
-  const ElevatedBottomWedgit({
+  const ElevatedBottonWedgit({
     super.key,
     required this.textBottom,
     this.formKey,
     this.routeName,
     this.showDialogOnSuccess = true,
   this.onSuccess,
+
   });
 
   @override
@@ -35,7 +37,12 @@ class ElevatedBottomWedgit extends StatelessWidget {
             formKey?.currentState!.reset();
               onSuccess?.call();
             if (routeName != null) {
-              Navigator.pushNamed(context, routeName!);
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                routeName!,
+                (route) => false,
+              );
+
             }
           }
         },

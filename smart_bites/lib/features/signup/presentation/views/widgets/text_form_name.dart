@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 class TextFormName extends StatelessWidget {
   const TextFormName({
     super.key,
-    required this.nameController,
     required this.textName,
     required this.prefixIcon,
+    this.checkNameVlidation = AutovalidateMode.onUserInteraction,
   });
+  final AutovalidateMode checkNameVlidation;
 
-  final TextEditingController nameController;
   final String textName;
   final Icon prefixIcon;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: nameController,
+      autovalidateMode: checkNameVlidation,
       validator: (value) {
         if (value!.isEmpty) {
           return 'Name is required';

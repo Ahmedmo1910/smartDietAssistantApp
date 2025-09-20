@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 
-String? Function(String?)? validationPasswordMethod(){
+String? Function(String?)? validationPasswordMethod() {
   return (value) {
     if (value == null || value.isEmpty) {
       return 'Password is required';
@@ -15,24 +14,17 @@ String? Function(String?)? validationPasswordMethod(){
   };
 }
 
-
-// Validation for confirm password
-String? Function(String?)? validationConfirmPasswordMethod(
-  TextEditingController passwordController,
-) {
+String? Function(String?) validationConfirmPasswordMethod(String? password) {
   return (value) {
     if (value == null || value.isEmpty) {
       return 'Confirm password is required';
     }
-
     if (value.length < 6) {
       return 'Confirm password too short';
     }
-
-    if (value != passwordController.text) {
-      return "Password doesn't match";
+    if (value != password) {
+      return "Passwords don't match";
     }
-
     return null;
   };
 }
