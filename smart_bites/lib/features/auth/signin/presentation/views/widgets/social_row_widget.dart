@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_bites/features/signin/presentation/views/widgets/social_item_widget.dart';
+import 'package:smart_bites/features/auth/signin/presentation/views/widgets/social_item_widget.dart';
 
 class SocialRowWidget extends StatelessWidget {
   const SocialRowWidget({super.key});

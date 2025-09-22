@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_bites/core/helper_functions/get_it_helper.dart';
+import 'package:smart_bites/core/utils/app_text_styles.dart';
 import 'package:smart_bites/features/setGoal/presentation/views/widgets/food_card.dart';
 import 'package:smart_bites/features/setGoal/presentation/views/widgets/set_goal_button.dart';
 import 'package:smart_bites/features/setGoal/presentation/views/widgets/slider.dart';
 
-class SetGoalPage extends StatefulWidget {
-  static const String routeName = 'setGoalPage';
+class SetGoalScreen extends StatefulWidget {
+  static const String routeName = 'SetGoalScreen';
 
-  const SetGoalPage({super.key});
+  const SetGoalScreen({super.key});
   @override
-  _SetGoalPageState createState() => _SetGoalPageState();
+  _SetGoalScreenState createState() => _SetGoalScreenState();
 }
 
-class _SetGoalPageState extends State<SetGoalPage> {
+class _SetGoalScreenState extends State<SetGoalScreen> {
   final prefs = getIt<SharedPreferences>();
   final GlobalKey<FormState> _keyDialog = GlobalKey();
   final TextEditingController _controllerDialog = TextEditingController();
@@ -34,29 +35,27 @@ class _SetGoalPageState extends State<SetGoalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+       backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: const Icon(Icons.arrow_back_ios, color: Colors.black),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios),
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Title
-              const Text(
-                "Set Goal",
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-              ),
+              const Text("Set Goal", style: AppTextStyles.bold40),
               const SizedBox(height: 10),
-              const Text(
-                "calories",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-              ),
-              const SizedBox(height: 20),
+              const Text("calories", style: AppTextStyles.regular24),
+              const SizedBox(height: 32),
 
               // Slider Section
               CaloriesSlider(currentValue: _currentValue, maxtValue: _maxValue),
@@ -65,7 +64,7 @@ class _SetGoalPageState extends State<SetGoalPage> {
               // Your Food
               const Text(
                 "Your Food",
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                style: AppTextStyles.semiBold20,
               ),
               const SizedBox(height: 15),
 
@@ -83,8 +82,8 @@ class _SetGoalPageState extends State<SetGoalPage> {
                 },
               ),
               SizedBox(height: 40),
-              Padding(
-                padding: const EdgeInsets.only(left: 90),
+              Align(
+                alignment: AlignmentGeometry.center,
                 child: SetGoalButton(
                   formState: _keyDialog,
                   controller: _controllerDialog,

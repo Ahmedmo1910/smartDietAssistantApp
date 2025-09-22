@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 abstract class AppTextStyles {
   static const String fontFamily = 'Montserrat';
-  
+
   // Bold Styles
+  static const TextStyle bold40 = TextStyle(
+    fontSize: 40,
+    fontWeight: FontWeight.w900,
+    fontFamily: fontFamily,
+  );
   static const TextStyle bold25 = TextStyle(
     fontSize: 25,
     fontWeight: FontWeight.w900,
@@ -38,7 +43,7 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w700,
     fontFamily: fontFamily,
   );
-   static const TextStyle semiBold25 = TextStyle(
+  static const TextStyle semiBold25 = TextStyle(
     fontSize: 25,
     fontWeight: FontWeight.w700,
     fontFamily: fontFamily,
@@ -52,7 +57,6 @@ abstract class AppTextStyles {
     fontSize: 18,
     fontWeight: FontWeight.w700,
     fontFamily: fontFamily,
-    
   );
 
   static const TextStyle semiBold16 = TextStyle(
@@ -82,6 +86,11 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w600,
     fontFamily: fontFamily,
   );
+  static const TextStyle medium16 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    fontFamily: fontFamily,
+  );
   static const TextStyle medium14 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w600,
@@ -100,6 +109,11 @@ abstract class AppTextStyles {
   );
 
   // Regular Styles
+  static const TextStyle regular24 = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w500,
+    fontFamily: fontFamily,
+  );
   static const TextStyle regular20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,
