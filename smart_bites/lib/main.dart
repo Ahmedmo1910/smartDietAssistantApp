@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/core/helper_functions/get_it_helper.dart';
-import 'package:smart_bites/features/splash/presentation/views/splash_screen.dart';
+import 'package:smart_bites/features/meals%20description/presentation/views/meals_description_screen.dart';
+import 'package:smart_bites/features/meals categories/presentation/views/meals_categories_screen.dart';
+//import 'package:smart_bites/features/meals%20description/presentation/views/widgets/meals_description_screen.dart';
+//import 'package:smart_bites/features/meals/presentation/views/meals_screen.dart';
+//import 'package:smart_bites/features/splash/presentation/views/splash_screen.dart';
 import 'core/helper_functions/on_generate_routes.dart';
 
 void main() async {
@@ -23,8 +27,11 @@ class MyApp extends StatelessWidget {
       title: 'SmartBites',
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      // initialRoute: SplashScreen.routeName, 
-      home: SignInScreen(),
+      //initialRoute: SplashScreen.routeName,
+      //home: SignInScreen(),
+      //home: MealsScreen(),
+      home: MealsCategories(),
+      //home: MealsDescriptionScreen(),
     );
   }
 }
