@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/core/utils/app_colors.dart';
-import 'package:smart_bites/features/forget_password/presentation/views/widgets/forget_password_screen_body.dart';
+import 'package:smart_bites/features/auth/forget_password/presentation/views/widgets/forget_password_screen_body.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   static const String routeName = 'forgetPasswordScreen';

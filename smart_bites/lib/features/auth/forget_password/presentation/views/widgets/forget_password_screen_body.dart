@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_bites/features/signin/presentation/views/widgets/auth_header_widget.dart';
-import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_email.dart';
+import 'package:smart_bites/features/auth/signin/presentation/views/widgets/auth_header_widget.dart';
+import 'package:smart_bites/features/auth/signin/presentation/views/widgets/text_form_email.dart';
 import 'package:smart_bites/widgets/elevated_bottom_widget.dart';
 
 class ForgetPasswordScreenBody extends StatefulWidget {

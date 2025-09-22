@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/core/utils/app_colors.dart';
 import 'package:smart_bites/core/utils/app_text_styles.dart';
-import 'package:smart_bites/features/forget_password/presentation/views/forget_password_screen.dart';
-import 'package:smart_bites/features/signin/presentation/views/widgets/auth_header_widget.dart';
-import 'package:smart_bites/features/signin/presentation/views/widgets/or_row_widget.dart';
-import 'package:smart_bites/features/signin/presentation/views/widgets/social_row_widget.dart';
-import 'package:smart_bites/features/signin/presentation/views/widgets/text_bottom_widget.dart';
-import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_email.dart';
-import 'package:smart_bites/features/signin/presentation/views/widgets/text_form_password.dart';
-import 'package:smart_bites/features/signup/presentation/views/sign_up_screen.dart';
+import 'package:smart_bites/features/auth/forget_password/presentation/views/forget_password_screen.dart';
+import 'package:smart_bites/features/auth/signin/presentation/views/widgets/auth_header_widget.dart';
+import 'package:smart_bites/features/auth/signin/presentation/views/widgets/or_row_widget.dart';
+import 'package:smart_bites/features/auth/signin/presentation/views/widgets/social_row_widget.dart';
+import 'package:smart_bites/features/auth/signin/presentation/views/widgets/text_bottom_widget.dart';
+import 'package:smart_bites/features/auth/signin/presentation/views/widgets/text_form_email.dart';
+import 'package:smart_bites/features/auth/signin/presentation/views/widgets/text_form_password.dart';
+import 'package:smart_bites/features/auth/signup/presentation/views/sign_up_screen.dart';
 import 'package:smart_bites/main_screen.dart';
 import 'package:smart_bites/widgets/elevated_bottom_widget.dart';
 
