@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "494584758320",
+    "project_id": "smartbites-cd0df",
+    "storage_bucket": "smartbites-cd0df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494584758320:android:4082b9781ee8e2b3d42df5",
+        "android_client_info": {
+          "package_name": "com.example.smart_bites"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF5gy7WpewFhMiRi94eAv3Ht_PUKQo9aY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

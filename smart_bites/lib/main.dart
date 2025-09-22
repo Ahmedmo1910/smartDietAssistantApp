@@ -1,14 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_bites/core/helper_functions/get_it_helper.dart';
-import 'package:smart_bites/features/meals%20description/presentation/views/meals_description_screen.dart';
-import 'package:smart_bites/features/meals categories/presentation/views/meals_categories_screen.dart';
-//import 'package:smart_bites/features/meals%20description/presentation/views/widgets/meals_description_screen.dart';
-//import 'package:smart_bites/features/meals/presentation/views/meals_screen.dart';
-//import 'package:smart_bites/features/splash/presentation/views/splash_screen.dart';
+import 'package:smart_bites/core/presentation/cubits/theme/theme_cubit.dart';
+import 'package:smart_bites/features/splash/presentation/views/splash_screen.dart';
+import 'package:smart_bites/firebase_options.dart';
 import 'core/helper_functions/on_generate_routes.dart';
+import 'core/presentation/cubits/theme/theme_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+   await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await setupGetIt();
   runApp(const MyApp());
 }
@@ -16,22 +20,32 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'Montserrat',
-        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+    return BlocProvider<ThemeCubit>(
+      create: (context) => ThemeCubit()..loadTheme(),
+      child: BlocBuilder<ThemeCubit, ThemeState>(
+        builder: (context, state) {
+          final themeCubit = context.watch<ThemeCubit>();
+          return MaterialApp(
+            theme: ThemeData(
+              fontFamily: 'Montserrat',
+              scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+            ),
+            darkTheme: ThemeData.dark().copyWith(
+              textTheme: ThemeData.dark().textTheme.apply(
+                fontFamily: 'Montserrat',
+              ),
+            ),
+            themeMode: themeCubit.isDark ? ThemeMode.dark : ThemeMode.light,
+            themeAnimationDuration: Durations.short1,
+            title: 'SmartBites',
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: onGenerateRoute,
+            initialRoute: SplashScreen.routeName,
+          );
+        },
       ),
-      title: 'SmartBites',
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: onGenerateRoute,
-      //initialRoute: SplashScreen.routeName,
-      //home: SignInScreen(),
-      //home: MealsScreen(),
-      home: MealsCategories(),
-      //home: MealsDescriptionScreen(),
     );
   }
 }
