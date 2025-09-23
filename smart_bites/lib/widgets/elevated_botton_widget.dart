@@ -7,8 +7,7 @@ class ElevatedBottonWedgit extends StatelessWidget {
   final GlobalKey<FormState>? formKey;
   final bool showDialogOnSuccess;
   final String? routeName;
-    final VoidCallback? onSuccess;
-   
+  final VoidCallback? onSuccess;
 
   const ElevatedBottonWedgit({
     super.key,
@@ -16,8 +15,7 @@ class ElevatedBottonWedgit extends StatelessWidget {
     this.formKey,
     this.routeName,
     this.showDialogOnSuccess = true,
-  this.onSuccess,
-
+    this.onSuccess,
   });
 
   @override
@@ -30,19 +28,12 @@ class ElevatedBottonWedgit extends StatelessWidget {
           backgroundColor: AppColors.primaryColor,
         ),
         onPressed: () {
-         
-
           if (formKey == null || formKey!.currentState!.validate()) {
             formKey?.currentState!.save();
             formKey?.currentState!.reset();
-              onSuccess?.call();
+            onSuccess?.call();
             if (routeName != null) {
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                routeName!,
-                (route) => false,
-              );
-
+              Navigator.pushReplacementNamed(context, routeName!);
             }
           }
         },

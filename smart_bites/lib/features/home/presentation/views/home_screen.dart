@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_bites/core/helper_functions/get_it_helper.dart';
+import 'package:smart_bites/core/presentation/cubits/profile_image/profile_image_cubit.dart';
 import 'package:smart_bites/features/home/presentation/cubit/water_cubit.dart';
 import 'package:smart_bites/features/home/presentation/cubit/water_state.dart';
+import 'package:smart_bites/features/home/presentation/views/widgets/custom_drawer.dart';
 import 'package:smart_bites/features/home/services/water_storage.dart';
 import 'widgets/build_app_bar_widget.dart';
 import 'widgets/home_screen_body.dart';
@@ -10,10 +12,14 @@ import 'widgets/home_screen_body.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   static const String routeName = 'home';
+
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => WaterCubit(getIt<WaterStorage>()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => WaterCubit(getIt<WaterStorage>())),
+        BlocProvider(create: (_) => ProfileCubit()..loadProfile()),
+      ],
       child: BlocListener<WaterCubit, WaterState>(
         listener: (context, state) {
           if (state.currentMl == state.goalMl && state.goalMl != 0) {
@@ -28,8 +34,9 @@ class HomeScreen extends StatelessWidget {
           }
         },
         child: Scaffold(
-          appBar: buildAppBarWidget(),
-          body: SafeArea(child: HomeScreenBody()),
+          drawer: const CustomDrawer(),
+          appBar: buildAppBarWidget(context),
+          body: HomeScreenBody(),
         ),
       ),
     );

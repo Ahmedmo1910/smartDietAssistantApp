@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/features/home/presentation/views/widgets/home_widget_grid_view.dart';
 import 'water_widget.dart';
 
 class HomeScreenBody extends StatelessWidget {
@@ -9,12 +10,13 @@ class HomeScreenBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           WaterWidget(),
+          Expanded(child: HomeWidgetGridView()),
         ],
       ),
     );
   }
 }
-
-
