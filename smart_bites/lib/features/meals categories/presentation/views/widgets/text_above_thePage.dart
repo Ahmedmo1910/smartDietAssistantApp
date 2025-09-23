@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+
+// ignore: must_be_immutable
+class TextAboveThePage extends StatelessWidget {
+  String pageName;
+  TextAboveThePage({required this.pageName, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Center(
+          child: Text(
+            'Explore Our',
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 30,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'IrishGrover',
+            ),
+          ),
+        ),
+
+        Center(
+          child: Text(
+            pageName,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 30,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'IrishGrover',
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
