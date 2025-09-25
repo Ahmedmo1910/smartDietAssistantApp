@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:smart_bites/core/utils/app_colors.dart';
 import 'package:smart_bites/core/utils/app_text_styles.dart';
 
-class ElevatedBottomWidget extends StatelessWidget {
+class ElevatedBottonWedgit extends StatelessWidget {
   final String textBottom;
   final GlobalKey<FormState>? formKey;
   final bool showDialogOnSuccess;
   final String? routeName;
   final VoidCallback? onSuccess;
 
-  const ElevatedBottomWidget({
+  const ElevatedBottonWedgit({
     super.key,
     required this.textBottom,
     this.formKey,
