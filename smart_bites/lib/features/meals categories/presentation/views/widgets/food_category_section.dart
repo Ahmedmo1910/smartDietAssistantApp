@@ -1,99 +1,119 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/core/utils/app_colors.dart';
+import 'package:smart_bites/core/utils/app_text_styles.dart';
+import 'package:smart_bites/features/meals%20description/presentation/views/meals_description_screen.dart';
 
-// ignore: must_be_immutable
 class FoodCategorySection extends StatelessWidget {
-  FoodCategorySection({
+  final String imageUrl;
+  final String nameOfTheMeals;
+  final int numOfKcal;
+  const FoodCategorySection({
     required this.imageUrl,
     required this.nameOfTheMeals,
     required this.numOfKcal,
     super.key,
   });
 
-  String imageUrl;
-  String nameOfTheMeals;
-  int numOfKcal;
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(10),
-      height: 350,
-      width: 242,
-      child: Stack(
-        clipBehavior: Clip.none,
-        alignment: Alignment.topCenter,
-        children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              height: 300,
-              width: 242,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(height: 40),
+        Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 8),
               decoration: BoxDecoration(
                 color: const Color(0xFFDAECC5),
-                border: Border.all(color: Colors.black),
+                border: Border.all(),
                 borderRadius: BorderRadius.circular(16),
               ),
-
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(width: 20),
-                      Text(
-                        nameOfTheMeals,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w800,
-                        ),
+              width: MediaQuery.sizeOf(context).width * 0.55,
+              height: MediaQuery.sizeOf(context).height * 0.35,
+            ),
+            Positioned(
+              bottom: 12,
+              left: 16,
+              right: 16,
+              child: SizedBox(
+                width: MediaQuery.sizeOf(context).width * 0.55,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'sdghsdhgkhdslkghlsdkhglksdhgklhsdkghsdlkhg',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTextStyles.medium16.copyWith(
+                        color: AppColors.blackColor,
                       ),
-                    ],
-                  ),
-
-                  SizedBox(height: 10),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SizedBox(width: 20),
-                      Text(
-                        'Kcal: $numOfKcal',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                        ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      nameOfTheMeals,
+                      style: AppTextStyles.semiBold18.copyWith(
+                        color: AppColors.blackColor,
                       ),
-
-                      SizedBox(width: 40),
-
-                      GestureDetector(
-                        child: Text(
-                          'show more..',
-                          style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Kcal:',
+                                  style: AppTextStyles.regular16.copyWith(
+                                    color: AppColors.blackColor,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' $numOfKcal',
+                                  style: AppTextStyles.bold16.copyWith(
+                                    color: AppColors.blackColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(height: 40),
-                ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              MealsDescriptionScreen.routeName,
+                            );
+                          },
+                          child: Text(
+                            'show more...',
+                            style: AppTextStyles.small14.copyWith(
+                              color: Colors.black45,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: 170,
-            left: 0,
-            right: 0,
-            child: CircleAvatar(
-              radius: 100,
-              backgroundImage: AssetImage(imageUrl),
+
+            Positioned(
+              top: -40,
+              left: 0,
+              right: 0,
+              child: CircleAvatar(
+                radius: 95,
+                child: ClipOval(child: Image.asset(imageUrl, fit: BoxFit.fill)),
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      ],
     );
   }
 }

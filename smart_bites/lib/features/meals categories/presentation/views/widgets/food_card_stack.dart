@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/core/utils/app_text_styles.dart';
 
 // ignore: camel_case_types, must_be_immutable
 class foodCardStack extends StatelessWidget {
   final String imagePath;
   final int numOfKcal;
 
-  const foodCardStack({required this.numOfKcal, required this.imagePath, super.key});
+  const foodCardStack({
+    required this.numOfKcal,
+    required this.imagePath,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: 20),
-      width: 100,
-      height: 160,
+      width: MediaQuery.sizeOf(context).width * 0.24,
+      height: MediaQuery.sizeOf(context).height * 0.175,
       child: Stack(
         children: [
           Positioned(
@@ -27,29 +32,23 @@ class foodCardStack extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.1),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: const Offset(0, 3),
+                    offset: const Offset(0, 4),
+                    blurRadius: 4,
+                    spreadRadius: 0,
                   ),
                 ],
               ),
               child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 15,
-                    right:15,
-                    top: 30),
+                padding: const EdgeInsets.only(top: 40),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Center(
                       child: Text(
                         '$numOfKcal Kcal',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: AppTextStyles.bold12.copyWith(
+                         color:  Colors.white,
+                        )
                       ),
                     ),
                     Container(
@@ -62,7 +61,7 @@ class foodCardStack extends StatelessWidget {
                         child: const Icon(
                           Icons.add,
                           color: Colors.white,
-                          size: 10,
+                          size: 12,
                         ),
                       ),
                     ),
@@ -71,15 +70,14 @@ class foodCardStack extends StatelessWidget {
               ),
             ),
           ),
-          // البطاقة البيضاء
           Positioned(
             top: 30,
             left: 0,
             right: 0,
             child: Container(
-              width: 100,
+              width: MediaQuery.sizeOf(context).width * 0.24,
               height: 80,
-              padding: const EdgeInsets.all(12),
+             // padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
@@ -93,7 +91,7 @@ class foodCardStack extends StatelessWidget {
                 ],
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(20),
                 child: Image.asset(imagePath, fit: BoxFit.contain),
               ),
             ),
