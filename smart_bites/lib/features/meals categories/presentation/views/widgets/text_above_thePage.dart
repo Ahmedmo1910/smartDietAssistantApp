@@ -9,27 +9,22 @@ class TextAboveThePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Center(
-          child: Text(
-            'Explore Our',
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 30,
-              fontWeight: FontWeight.w500,
-              fontFamily: 'IrishGrover',
-            ),
+        Text(
+          'Explore Our',
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 30,
+            fontWeight: FontWeight.w500,
+            fontFamily: 'IrishGrover',
           ),
         ),
 
-        Center(
-          child: Text(
-            pageName,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 30,
-              fontWeight: FontWeight.w500,
-              fontFamily: 'IrishGrover',
-            ),
+        Text(
+          pageName,
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.w500,
+            fontFamily: 'IrishGrover',
           ),
         ),
       ],

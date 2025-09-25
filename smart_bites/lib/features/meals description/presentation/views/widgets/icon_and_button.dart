@@ -3,13 +3,11 @@ import 'package:smart_bites/features/home/presentation/views/widgets/custom_butt
 
 class IconAndButton extends StatelessWidget {
   const IconAndButton({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(padding: EdgeInsets.only(right: 10)),
         Container(
           width: 50,
           height: 50,
@@ -19,9 +17,9 @@ class IconAndButton extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 3,
-                blurRadius: 7,
-                offset: Offset(0, 3),
+                offset: Offset(0, 2),
+                blurRadius: 4,
+                spreadRadius: 0,
               ),
             ],
           ),
@@ -36,9 +34,9 @@ class IconAndButton extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 3,
-                blurRadius: 7,
-                offset: Offset(0, 3),
+                offset: Offset(0, 2),
+                blurRadius: 4,
+                spreadRadius: 0,
               ),
             ],
           ),
