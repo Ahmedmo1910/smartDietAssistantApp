@@ -5,26 +5,30 @@ import 'package:smart_bites/features/validation/validation_password.dart';
 class TextFormPassword extends StatelessWidget {
   const TextFormPassword({
     super.key,
+
     required this.hiddenPassword,
     required this.onToggle,
     required this.textPassword,
+    this.onSaved,
     this.validator,
     this.onChanged,
     this.checkPassword = AutovalidateMode.onUserInteraction,
   });
 
-
-  final AutovalidateMode checkPassword;
   final bool hiddenPassword;
   final VoidCallback onToggle;
   final String textPassword;
   final String? Function(String?)? validator;
-  final Function(String)? onChanged;
+
+  final void Function(String?)? onSaved;
+
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      autovalidateMode: checkPassword,
+
+      onSaved: onSaved,
+
       obscureText: !hiddenPassword,
       onChanged: onChanged,
       validator: validator ?? validationPasswordMethod(),

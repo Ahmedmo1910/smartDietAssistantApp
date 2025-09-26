@@ -12,7 +12,6 @@ class ForgetPasswordScreenBody extends StatefulWidget {
 }
 
 class _ForgetPasswordScreenBodyState extends State<ForgetPasswordScreenBody> {
-  final TextEditingController emailController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -33,7 +32,6 @@ class _ForgetPasswordScreenBodyState extends State<ForgetPasswordScreenBody> {
             Form(
               key: _formKey,
               child: TextFormEmail(
-                emailController: emailController,
                 textEmail: 'Email',
                 prefixIcon: Icon(Icons.email),
               ),

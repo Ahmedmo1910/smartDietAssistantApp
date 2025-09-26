@@ -9,7 +9,7 @@ class IconInTopLeft extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: IconButton(
         onPressed: () {},
-        icon: Icon(Icons.arrow_back_ios, size:20),
+        icon: Icon(Icons.arrow_back_ios, size:25),
       ),
     );
   }

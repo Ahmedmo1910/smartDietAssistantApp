@@ -21,7 +21,6 @@ class CustomAlertDialog extends StatefulWidget {
 }
 
 class _CustomAlertDialogState extends State<CustomAlertDialog> {
-  late String userInput;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +62,8 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
                 onTap: () {
                   if (widget.formKey.currentState!.validate()) {
                     widget.formKey.currentState!.save();
-                    widget.onSave(userInput);
+                    widget.onSave(widget.controller.text);
+                    widget.controller.clear();
                     Navigator.pop(context);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(

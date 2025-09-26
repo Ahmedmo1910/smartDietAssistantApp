@@ -20,8 +20,7 @@ class SignInScreenBody extends StatefulWidget {
 }
 
 class _SignInScreenBodyState extends State<SignInScreenBody> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   bool hiddenPassword = false;
@@ -45,13 +44,13 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
               child: Column(
                 children: [
                   TextFormEmail(
-                    emailController: emailController,
+                    
                     textEmail: 'Email',
                     prefixIcon: Icon(Icons.email),
                   ),
                   const SizedBox(height: 30),
                   TextFormPassword(
-                    passwordController: passwordController,
+                    
                     hiddenPassword: hiddenPassword,
                     textPassword: 'Password',
                     onToggle: () {

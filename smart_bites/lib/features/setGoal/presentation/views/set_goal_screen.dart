@@ -5,6 +5,7 @@ import 'package:smart_bites/core/utils/app_text_styles.dart';
 import 'package:smart_bites/features/setGoal/presentation/views/widgets/food_card.dart';
 import 'package:smart_bites/features/setGoal/presentation/views/widgets/set_goal_button.dart';
 import 'package:smart_bites/features/setGoal/presentation/views/widgets/slider.dart';
+import 'package:smart_bites/widgets/custom_app_bar.dart';
 
 class SetGoalScreen extends StatefulWidget {
   static const String routeName = 'SetGoalScreen';
@@ -18,7 +19,6 @@ class _SetGoalScreenState extends State<SetGoalScreen> {
   final prefs = getIt<SharedPreferences>();
   final GlobalKey<FormState> _keyDialog = GlobalKey();
   final TextEditingController _controllerDialog = TextEditingController();
-  late String userInput;
   double _currentValue = 0;
   double _maxValue = 1000;
   final double _kCal = 250;
@@ -35,16 +35,7 @@ class _SetGoalScreenState extends State<SetGoalScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-       backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios),
-        ),
-      ),
+      appBar: customAppBar(context),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: SingleChildScrollView(

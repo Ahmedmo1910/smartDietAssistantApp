@@ -7,16 +7,17 @@ class TextFormEmail extends StatelessWidget {
     super.key,
     required this.textEmail,
     required this.prefixIcon,
-    this.checkEmailValidation = AutovalidateMode.onUserInteraction,
+    this.onSaved,
   });
-  AutovalidateMode checkEmailValidation;
+
   final String textEmail;
   final Icon prefixIcon;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      autovalidateMode: checkEmailValidation,
+      onSaved: onSaved,
       validator: validationEmail(),
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
