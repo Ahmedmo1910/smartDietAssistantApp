@@ -4,10 +4,13 @@ class TextFormName extends StatelessWidget {
   const TextFormName({
     super.key,
 
+
     required this.textName,
     required this.prefixIcon,
     this.onSaved,
+
   });
+  final AutovalidateMode checkNameVlidation;
 
   final String textName;
   final Icon prefixIcon;
@@ -16,6 +19,7 @@ class TextFormName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+
       validator: (value) {
         if (value!.isEmpty) {
           return 'Name is required';

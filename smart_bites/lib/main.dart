@@ -15,10 +15,10 @@ void main() async {
    await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   await setupGetIt();
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
