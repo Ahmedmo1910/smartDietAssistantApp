@@ -5,32 +5,37 @@ import 'package:smart_bites/features/validation/validation_password.dart';
 class TextFormPassword extends StatelessWidget {
   const TextFormPassword({
     super.key,
-    required this.passwordController,
+
     required this.hiddenPassword,
     required this.onToggle,
     required this.textPassword,
+    this.onSaved,
     this.validator,
+    this.onChanged,
+    this.checkPassword = AutovalidateMode.onUserInteraction,
   });
 
-  final TextEditingController passwordController;
   final bool hiddenPassword;
   final VoidCallback onToggle;
   final String textPassword;
   final String? Function(String?)? validator;
 
+  final void Function(String?)? onSaved;
+
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      
-      controller: passwordController,
+
+      onSaved: onSaved,
+
       obscureText: !hiddenPassword,
+      onChanged: onChanged,
       validator: validator ?? validationPasswordMethod(),
       decoration: InputDecoration(
         suffixIcon: IconButton(
           onPressed: onToggle,
-          icon: Icon(
-            hiddenPassword ? Icons.visibility : Icons.visibility_off,
-          ),
+          icon: Icon(hiddenPassword ? Icons.visibility : Icons.visibility_off),
         ),
         prefixIcon: const Icon(Icons.lock),
         labelText: textPassword,

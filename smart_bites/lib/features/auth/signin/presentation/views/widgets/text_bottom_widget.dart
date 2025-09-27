@@ -5,7 +5,6 @@ import 'package:smart_bites/core/utils/app_text_styles.dart';
 class TextBottomWidget extends StatelessWidget {
   final String textStatic;
   final String textBottom;
-  // final Widget? destination;
   final String? routeName;
   final bool? isPop;
   const TextBottomWidget({

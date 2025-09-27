@@ -3,22 +3,21 @@ import 'package:smart_bites/core/utils/app_text_styles.dart';
 import 'package:smart_bites/features/validation/validation_email.dart';
 
 class TextFormEmail extends StatelessWidget {
-  const TextFormEmail({
+  TextFormEmail({
     super.key,
-    required this.emailController,
     required this.textEmail,
     required this.prefixIcon,
+    this.onSaved,
   });
 
-  final TextEditingController emailController;
   final String textEmail;
   final Icon prefixIcon;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: emailController,
-
+      onSaved: onSaved,
       validator: validationEmail(),
       decoration: InputDecoration(
         prefixIcon: prefixIcon,

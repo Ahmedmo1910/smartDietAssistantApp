@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/features/home/presentation/views/home_screen.dart';
 import 'package:smart_bites/features/home/presentation/views/widgets/floating_navigation_bar.dart';
+import 'package:smart_bites/features/meals/presentation/views/meals_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -15,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> screens = const [
     HomeScreen(),
-    Center(child: Text("Meals Screen")),
+    MealsScreen(),
     Center(child: Text("Favorites Screen")),
   ];
 
