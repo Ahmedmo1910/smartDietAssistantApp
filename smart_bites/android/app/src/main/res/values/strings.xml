@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">smartbites</string> 
+<string name="facebook_app_id">2241458076354883</string>
+<string name="fb_login_protocol_scheme">fb1234</string>
+<string name="facebook_client_token">c99aaafbd3dff9b3dafa1975a453519e</string>
+
+</resources>
+

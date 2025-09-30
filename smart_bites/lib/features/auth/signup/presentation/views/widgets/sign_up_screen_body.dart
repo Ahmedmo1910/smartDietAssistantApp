@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/sign_in_screen.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/widgets/auth_header_widget.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/widgets/or_row_widget.dart';
@@ -6,6 +7,7 @@ import 'package:smart_bites/features/auth/signin/presentation/views/widgets/soci
 import 'package:smart_bites/features/auth/signin/presentation/views/widgets/text_bottom_widget.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/widgets/text_form_email.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/widgets/text_form_password.dart';
+import 'package:smart_bites/features/auth/signup/presentation/cubit/signup_cubit.dart';
 import 'package:smart_bites/features/auth/signup/presentation/views/widgets/check_box_widget.dart';
 import 'package:smart_bites/features/auth/signup/presentation/views/widgets/text_form_name.dart';
 import 'package:smart_bites/features/validation/validation_password.dart';
@@ -98,7 +100,12 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                   const SizedBox(height: 15),
                   OrRowWidget(textOr: 'Sign Up'),
                   const SizedBox(height: 15),
-                  SocialRowWidget(),
+                  SocialRowWidget(
+                    googleSign: () =>
+                        context.read<SignupCubit>().signinWithGoogle(),
+                    facebookSign: () =>
+                        context.read<SignupCubit>().signinWithFacebook(),
+                  ),
                 ],
               ),
             ),

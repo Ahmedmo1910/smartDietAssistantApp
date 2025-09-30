@@ -11,7 +11,7 @@ import 'core/presentation/cubits/theme/theme_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- // Bloc.observer = CustomBlocObserver();
+  Bloc.observer = CustomBlocObserver();
    await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

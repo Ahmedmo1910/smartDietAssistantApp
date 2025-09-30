@@ -49,7 +49,8 @@ dependencies:
   tab_container: ^3.5.3
   firebase_auth: ^6.1.0
   modal_progress_hud_nsn: ^0.5.1
-
+  google_sign_in: ^6.2.2
+  flutter_facebook_auth: ^7.1.2
 
 dev_dependencies:
   flutter_test:
