@@ -20,12 +20,9 @@ class SignUpScreenBody extends StatefulWidget {
 }
 
 class _SignUpScreenBodyState extends State<SignUpScreenBody> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
-  final TextEditingController nameController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  late String userName, email, password;
 
   bool hiddenPassword = false;
   bool hiddenConfirmPassword = false;
@@ -44,23 +41,24 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
             ),
             Form(
               key: _formKey,
+              autovalidateMode: autovalidateMode,
               child: Column(
                 children: [
                   TextFormName(
-                    nameController: nameController,
+                    onSaved: (value) => userName = value!,
                     textName: 'Full Name',
                     prefixIcon: const Icon(Icons.person),
                   ),
                   const SizedBox(height: 15),
                   TextFormEmail(
-                    emailController: emailController,
+                    onSaved: (value) => email = value!,
                     textEmail: 'Email',
                     prefixIcon: const Icon(Icons.email),
                   ),
                   const SizedBox(height: 15),
                   // Password
                   TextFormPassword(
-                    passwordController: passwordController,
+                    onSaved: (value) => password = value!,
                     hiddenPassword: hiddenPassword,
                     textPassword: 'Password',
                     onToggle: () {
@@ -73,7 +71,6 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                   const SizedBox(height: 15),
                   // Confirm Password
                   TextFormPassword(
-                    passwordController: confirmPasswordController,
                     hiddenPassword: hiddenConfirmPassword,
                     textPassword: 'Confirm Password',
                     onToggle: () {
@@ -81,9 +78,6 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                         hiddenConfirmPassword = !hiddenConfirmPassword;
                       });
                     },
-                    validator: validationConfirmPasswordMethod(
-                      passwordController,
-                    ),
                   ),
                   CheckBoxWidget(textCheckBox: 'I Agree with privacy policy.'),
                   ElevatedBottomWidget(
@@ -91,10 +85,14 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                     textBottom: 'Sign Up',
                     routeName: MainScreen.routeName,
                     onSuccess: () {
-                      emailController.clear();
-                      passwordController.clear();
-                      confirmPasswordController.clear();
-                      nameController.clear();
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        //! implement signup cubit here☺
+                      } else {
+                        setState(() {
+                          autovalidateMode = AutovalidateMode.always;
+                        });
+                      }
                     },
                   ),
                   const SizedBox(height: 15),
