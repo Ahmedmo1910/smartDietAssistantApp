@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void executeNavigation() {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, SignInScreen.routeName);
+      Navigator.pushReplacementNamed(context, MainScreen.routeName);
     });
   }
 }

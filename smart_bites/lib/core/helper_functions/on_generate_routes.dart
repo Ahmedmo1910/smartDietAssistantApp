@@ -3,6 +3,7 @@ import 'package:smart_bites/features/auth/forget_password/presentation/views/for
 import 'package:smart_bites/features/home/presentation/views/home_screen.dart';
 import 'package:smart_bites/features/meals%20categories/presentation/views/meals_categories_screen.dart';
 import 'package:smart_bites/features/meals%20description/presentation/views/meals_description_screen.dart';
+import 'package:smart_bites/features/scan_your_food/presentation/views/scan_your_food_screen.dart';
 import 'package:smart_bites/features/setGoal/presentation/views/set_goal_screen.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/sign_in_screen.dart';
 import 'package:smart_bites/features/auth/signup/presentation/views/sign_up_screen.dart';
@@ -31,6 +32,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => MealsCategories());
     case MealsDescriptionScreen.routeName:
       return MaterialPageRoute(builder: (context) => MealsDescriptionScreen());
+    case ScanYourFoodScreen.routeName:
+      return MaterialPageRoute(builder: (context) => ScanYourFoodScreen());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }
