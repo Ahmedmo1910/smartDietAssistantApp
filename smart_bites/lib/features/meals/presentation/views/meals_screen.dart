@@ -17,7 +17,7 @@ class MealsScreen extends StatelessWidget {
           Text('Meals', style: AppTextStyles.bold40),
 
           mealsContainers(
-            imageUrl: 'assets/images/firstCardMeals.png',
+            imageUrl: Image.asset('assets/images/firstCardMeals.png'),
             cardName: 'Break Fast',
             cardDescription: 'Healthy meals to start your morning strong',
             buttonText: 'Add Breakfast',
@@ -27,7 +27,7 @@ class MealsScreen extends StatelessWidget {
           SizedBox(height: 10),
 
           mealsContainers(
-            imageUrl: 'assets/images/secondCardMeals.png',
+            imageUrl: Image.asset('assets/images/secondCardMeals.png'),
             cardName: 'Lunch',
             cardDescription: 'Nutritious dishes to fuel your afternoon',
             buttonText: 'Add Lunch',
@@ -37,7 +37,7 @@ class MealsScreen extends StatelessWidget {
           SizedBox(height: 10),
 
           mealsContainers(
-            imageUrl: 'assets/images/thirdCardMeals.png',
+            imageUrl: Image.asset('assets/images/thirdCardMeals.png'),
             cardName: 'Dinner',
             cardDescription: 'Light and balanced meals for the evening',
             buttonText: 'Add Dinner',
