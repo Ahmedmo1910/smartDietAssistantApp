@@ -14,6 +14,7 @@ import 'package:smart_bites/features/auth/signup/presentation/views/sign_up_scre
 import 'package:smart_bites/main_screen.dart';
 import 'package:smart_bites/widgets/elevated_botton_widget.dart';
 
+
 class SignInScreenBody extends StatefulWidget {
   const SignInScreenBody({super.key});
 
@@ -65,8 +66,9 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                     },
                   ),
                   const SizedBox(height: 50),
-                  //Sign In Bottom ........)
-                  ElevatedBottomWedgit(
+
+                  //Sign In Bottom ..................:)
+                  ElevatedBottonWedgit(
                     formKey: _formKey,
                     textBottom: 'Sign In',
                     routeName: MainScreen.routeName,

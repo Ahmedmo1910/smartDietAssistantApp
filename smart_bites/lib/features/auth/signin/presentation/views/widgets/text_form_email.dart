@@ -3,7 +3,7 @@ import 'package:smart_bites/core/utils/app_text_styles.dart';
 import 'package:smart_bites/features/validation/validation_email.dart';
 
 class TextFormEmail extends StatelessWidget {
-  TextFormEmail({
+  const TextFormEmail({
     super.key,
     required this.textEmail,
     required this.prefixIcon,

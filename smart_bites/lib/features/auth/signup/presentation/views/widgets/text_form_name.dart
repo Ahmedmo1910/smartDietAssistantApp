@@ -10,7 +10,7 @@ class TextFormName extends StatelessWidget {
     this.onSaved,
 
   });
- 
+
   final String textName;
   final Icon prefixIcon;
   final void Function(String?)? onSaved;
