@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/widgets/auth_header_widget.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/widgets/text_form_email.dart';
-import 'package:smart_bites/widgets/elevated_bottom_widget.dart';
+import 'package:smart_bites/widgets/elevated_botton_widget.dart';
 
 class ForgetPasswordScreenBody extends StatefulWidget {
   const ForgetPasswordScreenBody({super.key});
@@ -38,7 +38,7 @@ class _ForgetPasswordScreenBodyState extends State<ForgetPasswordScreenBody> {
             ),
             SizedBox(height: 40),
             //Continue Bottom ..................:)
-            ElevatedBottomWidget(formKey: _formKey, textBottom: 'Continue'),
+            ElevatedBottomWedgit(formKey: _formKey, textBottom: 'Continue'),
           ],
         ),
       ),

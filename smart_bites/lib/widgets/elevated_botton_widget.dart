@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:smart_bites/core/utils/app_colors.dart';
 import 'package:smart_bites/core/utils/app_text_styles.dart';
 
-class ElevatedBottonWedgit extends StatelessWidget {
+class ElevatedBottomWedgit extends StatelessWidget {
   final String textBottom;
   final GlobalKey<FormState>? formKey;
   final bool showDialogOnSuccess;
   final String? routeName;
   final VoidCallback? onSuccess;
 
-  const ElevatedBottonWedgit({
+  const ElevatedBottomWedgit({
     super.key,
     required this.textBottom,
     this.formKey,
@@ -28,13 +28,10 @@ class ElevatedBottonWedgit extends StatelessWidget {
           backgroundColor: AppColors.primaryColor,
         ),
         onPressed: () {
-          if (formKey == null || formKey!.currentState!.validate()) {
+          if (formKey != null && formKey!.currentState!.validate()) {
             formKey?.currentState!.save();
-            formKey?.currentState!.reset();
+
             onSuccess?.call();
-            if (routeName != null) {
-              Navigator.pushReplacementNamed(context, routeName!);
-            }
           }
         },
         child: Padding(
