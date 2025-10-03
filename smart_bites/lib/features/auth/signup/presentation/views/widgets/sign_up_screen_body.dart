@@ -10,7 +10,8 @@ import 'package:smart_bites/features/auth/signup/presentation/views/widgets/chec
 import 'package:smart_bites/features/auth/signup/presentation/views/widgets/text_form_name.dart';
 import 'package:smart_bites/features/validation/validation_password.dart';
 import 'package:smart_bites/main_screen.dart';
-import 'package:smart_bites/widgets/elevated_bottom_widget.dart';
+import 'package:smart_bites/widgets/elevated_botton_widget.dart';
+
 
 class SignUpScreenBody extends StatefulWidget {
   const SignUpScreenBody({super.key});
@@ -80,7 +81,7 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                     },
                   ),
                   CheckBoxWidget(textCheckBox: 'I Agree with privacy policy.'),
-                  ElevatedBottomWidget(
+                  ElevatedBottonWedgit(
                     formKey: _formKey,
                     textBottom: 'Sign Up',
                     routeName: MainScreen.routeName,

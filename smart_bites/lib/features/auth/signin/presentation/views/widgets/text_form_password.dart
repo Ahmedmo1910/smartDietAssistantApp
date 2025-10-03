@@ -11,8 +11,6 @@ class TextFormPassword extends StatelessWidget {
     required this.textPassword,
     this.onSaved,
     this.validator,
-    this.onChanged,
-    this.checkPassword = AutovalidateMode.onUserInteraction,
   });
 
   final bool hiddenPassword;
@@ -22,15 +20,13 @@ class TextFormPassword extends StatelessWidget {
 
   final void Function(String?)? onSaved;
 
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-
       onSaved: onSaved,
 
       obscureText: !hiddenPassword,
-      onChanged: onChanged,
+
       validator: validator ?? validationPasswordMethod(),
       decoration: InputDecoration(
         suffixIcon: IconButton(

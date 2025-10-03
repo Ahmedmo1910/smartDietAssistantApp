@@ -1,8 +1,5 @@
-import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:smart_bites/core/errors/exceptions.dart';
 import 'package:smart_bites/core/errors/failures.dart';
 import 'package:smart_bites/core/services/firebase_auth_service.dart';
 import 'package:smart_bites/features/auth/domain/entities/user_entity.dart';
