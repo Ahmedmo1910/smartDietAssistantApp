@@ -12,7 +12,8 @@ import 'package:smart_bites/features/auth/signup/presentation/views/widgets/chec
 import 'package:smart_bites/features/auth/signup/presentation/views/widgets/text_form_name.dart';
 import 'package:smart_bites/features/validation/validation_password.dart';
 import 'package:smart_bites/main_screen.dart';
-import 'package:smart_bites/widgets/elevated_bottom_widget.dart';
+import 'package:smart_bites/widgets/elevated_botton_widget.dart';
+
 
 class SignUpScreenBody extends StatefulWidget {
   const SignUpScreenBody({super.key});
@@ -24,10 +25,12 @@ class SignUpScreenBody extends StatefulWidget {
 class _SignUpScreenBodyState extends State<SignUpScreenBody> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  late String userName, email, password;
-
+  late String userName, email;
+  String password = '';
+  String confirmPassword = '';
   bool hiddenPassword = false;
   bool hiddenConfirmPassword = false;
+  bool isPolicyAgreed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,30 +40,38 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 20),
+            //Header ........)
             AuthHeaderWidget(
               headerTitle: 'Create your new\naccount.',
               headerSubTitle: 'Please, sign up to continue.',
             ),
+            //Form ........)
             Form(
               key: _formKey,
               autovalidateMode: autovalidateMode,
               child: Column(
                 children: [
+                  //Text Input name ........)
                   TextFormName(
                     onSaved: (value) => userName = value!,
                     textName: 'Full Name',
                     prefixIcon: const Icon(Icons.person),
                   ),
                   const SizedBox(height: 15),
+                  //Text Input email ........)
                   TextFormEmail(
                     onSaved: (value) => email = value!,
                     textEmail: 'Email',
                     prefixIcon: const Icon(Icons.email),
                   ),
                   const SizedBox(height: 15),
-                  // Password
+                  //Text Input password ........)
                   TextFormPassword(
                     onSaved: (value) => password = value!,
+                    onChanged: (value) {
+                      setState(() => password = value);
+                    },
                     hiddenPassword: hiddenPassword,
                     textPassword: 'Password',
                     onToggle: () {
@@ -70,9 +81,14 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                     },
                     validator: validationPasswordMethod(),
                   ),
+
                   const SizedBox(height: 15),
-                  // Confirm Password
+                  //Text Input Confirm Password ........)
                   TextFormPassword(
+                    onSaved: (value) => confirmPassword = value!,
+                    onChanged: (value) {
+                      setState(() => confirmPassword = value);
+                    },
                     hiddenPassword: hiddenConfirmPassword,
                     textPassword: 'Confirm Password',
                     onToggle: () {
@@ -80,16 +96,46 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                         hiddenConfirmPassword = !hiddenConfirmPassword;
                       });
                     },
+
+                    validator: validationConfirmPasswordMethod(password),
                   ),
-                  CheckBoxWidget(textCheckBox: 'I Agree with privacy policy.'),
-                  ElevatedBottomWidget(
+
+                  const SizedBox(height: 15),
+                  //check box ........)
+                  CheckBoxWidget(
+                    textCheckBox: 'I Agree with privacy policy.',
+                    value: isPolicyAgreed,
+                    onChanged: (value) {
+                      setState(() => isPolicyAgreed = value);
+                    },
+                  ),
+                  const SizedBox(height: 15),
+                  //Sign up Botton ........)
+                  ElevatedBottomWedgit(
+
                     formKey: _formKey,
                     textBottom: 'Sign Up',
                     routeName: MainScreen.routeName,
                     onSuccess: () {
+                      if (!isPolicyAgreed) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'You must agree with the privacy policy',
+                            ),
+                          ),
+                        );
+                        return;
+                      }
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        //! implement signup cubit here☺
+                        context
+                            .read<SignupCubit>()
+                            .createUserWithEmailAndPassword(
+                              email,
+                              password,
+                              userName,
+                            );
                       } else {
                         setState(() {
                           autovalidateMode = AutovalidateMode.always;
@@ -106,6 +152,7 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                     facebookSign: () =>
                         context.read<SignupCubit>().signinWithFacebook(),
                   ),
+
                 ],
               ),
             ),

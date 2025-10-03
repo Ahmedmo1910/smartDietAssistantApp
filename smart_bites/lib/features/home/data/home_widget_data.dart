@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smart_bites/features/home/presentation/views/widgets/custom_home_widget.dart';
 import 'package:smart_bites/features/scan_your_food/presentation/views/scan_your_food_screen.dart';
+import 'package:smart_bites/features/meals/presentation/views/track_your_daily_meals.dart';
 import 'package:smart_bites/features/setGoal/presentation/views/set_goal_screen.dart';
 
 List<CustomHomeWidget> getHomeWidget = [
@@ -24,6 +25,7 @@ List<CustomHomeWidget> getHomeWidget = [
     text: 'Track your daily meals',
     widget: SvgPicture.asset('assets/images/chef.svg', fit: BoxFit.contain),
     buttonText: 'Meals',
+    routeName: TrackYourDailyMeals.routeName,
   ),
   CustomHomeWidget(
     text: 'Scan your food quickly',

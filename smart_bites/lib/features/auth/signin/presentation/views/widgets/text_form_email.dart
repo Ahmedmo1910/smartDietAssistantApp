@@ -5,7 +5,6 @@ import 'package:smart_bites/features/validation/validation_email.dart';
 class TextFormEmail extends StatelessWidget {
   const TextFormEmail({
     super.key,
-
     required this.textEmail,
     required this.prefixIcon,
     this.onSaved,

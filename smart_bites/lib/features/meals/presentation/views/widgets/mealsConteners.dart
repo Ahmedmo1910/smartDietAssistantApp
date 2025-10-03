@@ -5,7 +5,7 @@ import 'package:smart_bites/features/home/presentation/views/widgets/custom_butt
 
 // ignore: camel_case_types
 class mealsContainers extends StatelessWidget {
-  final String imageUrl;
+  final Widget imageUrl;
   final String cardName;
   final String cardDescription;
   final String buttonText;
@@ -16,8 +16,8 @@ class mealsContainers extends StatelessWidget {
     required this.imageUrl,
     required this.cardName,
     required this.cardDescription,
-    required this.buttonText,
-    required this.routeName
+    this.buttonText = '',
+    this.routeName = '',
   });
 
   @override
@@ -27,7 +27,7 @@ class mealsContainers extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.18,
       margin: EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: Color(0XFFFFFFFF),
+        // color: Color(0XFFFFFFFF),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
@@ -44,12 +44,7 @@ class mealsContainers extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
-                imageUrl,
-                height: 118,
-                width: 118,
-                fit: BoxFit.fill,
-              ),
+              child: imageUrl,
             ),
           ),
 
@@ -64,8 +59,8 @@ class mealsContainers extends StatelessWidget {
                   cardDescription,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style:AppTextStyles.regular14.copyWith(
-                    color: Colors.black45
+                  style: AppTextStyles.regular14.copyWith(
+                    color: Colors.black45,
                   ),
                 ),
                 const SizedBox(height: 8),
