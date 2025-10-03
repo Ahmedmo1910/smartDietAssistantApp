@@ -145,8 +145,14 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                   ),
                   const SizedBox(height: 15),
                   OrRowWidget(textOr: 'Sign Up'),
-                  const SizedBox(height: 5),
-                  SocialRowWidget(),
+                  const SizedBox(height: 15),
+                  SocialRowWidget(
+                    googleSign: () =>
+                        context.read<SignupCubit>().signinWithGoogle(),
+                    facebookSign: () =>
+                        context.read<SignupCubit>().signinWithFacebook(),
+                  ),
+
                 ],
               ),
             ),
