@@ -68,7 +68,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                   const SizedBox(height: 50),
 
                   //Sign In Bottom ..................:)
-                  ElevatedBottonWedgit(
+                  ElevatedBottomWedgit(
                     formKey: _formKey,
                     textBottom: 'Sign In',
                     routeName: MainScreen.routeName,

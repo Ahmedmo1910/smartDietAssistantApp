@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -36,10 +37,8 @@ class FirebaseAuthService {
     return (await FirebaseAuth.instance.signInWithCredential(
       facebookAuthCredential,
     )).user!;
-import 'package:smart_bites/core/errors/exceptions.dart';
-import 'dart:developer';
+  }
 
-class FirebaseAuthService {
   // Create email and password ..............:)
   Future<User> createUserWithEmailAndPassword({
     required String email,
