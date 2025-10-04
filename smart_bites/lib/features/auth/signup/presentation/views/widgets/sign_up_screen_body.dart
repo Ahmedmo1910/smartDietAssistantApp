@@ -13,6 +13,7 @@ import 'package:smart_bites/features/auth/signup/presentation/views/widgets/text
 import 'package:smart_bites/features/validation/validation_password.dart';
 import 'package:smart_bites/widgets/elevated_botton_widget.dart';
 
+
 class SignUpScreenBody extends StatefulWidget {
   const SignUpScreenBody({super.key});
 
@@ -110,6 +111,7 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                   const SizedBox(height: 15),
                   //Sign up Botton ........)
                   ElevatedBottomWedgit(
+
                     formKey: _formKey,
                     textBottom: 'Sign Up',
                     onSuccess: () {

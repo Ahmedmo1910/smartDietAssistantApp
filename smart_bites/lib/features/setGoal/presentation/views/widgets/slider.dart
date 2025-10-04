@@ -43,7 +43,9 @@ class CaloriesSlider extends StatelessWidget {
               value: currentValue,
               max: maxtValue,
               min: 0,
-              onChanged: (value) {},
+              onChanged: (value) {
+                
+              },
             ),
           ),
         ),

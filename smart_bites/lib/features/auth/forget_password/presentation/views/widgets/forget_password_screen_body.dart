@@ -38,7 +38,8 @@ class _ForgetPasswordScreenBodyState extends State<ForgetPasswordScreenBody> {
             ),
             SizedBox(height: 40),
             //Continue Bottom ..................:)
-            ElevatedBottomWedgit(formKey: _formKey, textBottom: 'Continue'),
+
+            ElevatedBottonWedgit(formKey: _formKey, textBottom: 'Continue'),
           ],
         ),
       ),
