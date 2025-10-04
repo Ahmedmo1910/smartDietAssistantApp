@@ -87,7 +87,14 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                   OrRowWidget(textOr: 'Sign In'),
                   const SizedBox(height: 30),
                   //Social Row Widget ........)
-                  SocialRowWidget(),
+                  SocialRowWidget(
+                    googleSign: () {
+                      context.read<SigninCubit>().signinWithGoogle();
+                    },
+                    facebookSign: () {
+                      context.read<SigninCubit>().signinWithFacebook();
+                    },
+                  ),
                 ],
               ),
             ),
