@@ -11,7 +11,7 @@ import 'package:smart_bites/features/auth/signup/presentation/cubit/signup_cubit
 import 'package:smart_bites/features/auth/signup/presentation/views/widgets/check_box_widget.dart';
 import 'package:smart_bites/features/auth/signup/presentation/views/widgets/text_form_name.dart';
 import 'package:smart_bites/features/validation/validation_password.dart';
-import 'package:smart_bites/widgets/elevated_botton_widget.dart';
+import 'package:smart_bites/widgets/elevated_bottom_widget.dart';
 
 
 class SignUpScreenBody extends StatefulWidget {
