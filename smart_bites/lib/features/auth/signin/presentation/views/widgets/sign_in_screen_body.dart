@@ -68,7 +68,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                   const SizedBox(height: 50),
 
                   //Sign In Bottom ..................:)
-                  ElevatedBottonWedgit(
+                  ElevatedBottomWedgit(
                     formKey: _formKey,
                     textBottom: 'Sign In',
                     routeName: MainScreen.routeName,
@@ -87,7 +87,14 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
                   OrRowWidget(textOr: 'Sign In'),
                   const SizedBox(height: 30),
                   //Social Row Widget ........)
-                  SocialRowWidget(),
+                  SocialRowWidget(
+                    googleSign: () {
+                      context.read<SigninCubit>().signinWithGoogle();
+                    },
+                    facebookSign: () {
+                      context.read<SigninCubit>().signinWithFacebook();
+                    },
+                  ),
                 ],
               ),
             ),
