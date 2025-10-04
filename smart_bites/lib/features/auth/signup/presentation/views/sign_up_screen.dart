@@ -5,7 +5,6 @@ import 'package:smart_bites/features/auth/domain/repos/auth_repo.dart';
 import 'package:smart_bites/features/auth/signup/presentation/cubit/signup_cubit.dart';
 import 'package:smart_bites/features/auth/signup/presentation/views/widgets/signup_screen_bloc_consumer.dart';
 
-
 class SignUpScreen extends StatelessWidget {
   static const String routeName = 'signUpScreen';
   const SignUpScreen({super.key});
@@ -13,12 +12,9 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignupCubit(getIt<AuthRepo>(),),
-      child: Scaffold(
-        body: SafeArea(
-          child: SignupScreenBlocConsumer(),
-        ),
-      ),
+      create: (context) => SignupCubit(getIt<AuthRepo>()),
+
+      child: Scaffold(body: SafeArea(child: SignupScreenBlocConsumer())),
     );
   }
 }

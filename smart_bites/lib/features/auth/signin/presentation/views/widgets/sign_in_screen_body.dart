@@ -36,6 +36,7 @@ class _SignInScreenBodyState extends State<SignInScreenBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 20,),
             //Header screen ........)
             AuthHeaderWidget(
               headerTitle: 'Sign In to your \naccount.',

@@ -13,9 +13,12 @@ class SigninCubit extends Cubit<SigninState> {
     emit(SigninLoading());
     final result = await authRepo.signInWithEmailAndPassword(email, password);
 
-    result.fold(
-      (failure) => emit(SigninFailure(message: failure.message)),
-      (userEntity) => emit(SigninSuccess(userEntity: userEntity)),
-    );
+    result.fold((failure) {
+      if (failure.message.contains('Email not verified')) {
+        emit(SigninEmailNotVerified(message: failure.message));
+      } else {
+        emit(SigninFailure(message: failure.message));
+      }
+    }, (userEntity) => emit(SigninSuccess(userEntity: userEntity)));
   }
 }

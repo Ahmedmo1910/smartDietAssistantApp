@@ -3,16 +3,21 @@ part of 'signin_cubit.dart';
 @immutable
 sealed class SigninState {}
 
-final class SigninInitial extends SigninState {}
-final class SigninLoading extends SigninState {}
-final class SigninSuccess extends SigninState {
-  final UserEntity userEntity;
+class SigninInitial extends SigninState {}
 
+class SigninLoading extends SigninState {}
+
+class SigninSuccess extends SigninState {
+  final UserEntity userEntity;
   SigninSuccess({required this.userEntity});
 }
 
-final class SigninFailure extends SigninState {
+class SigninFailure extends SigninState {
   final String message;
-
   SigninFailure({required this.message});
+}
+
+class SigninEmailNotVerified extends SigninState {
+  final String message;
+  SigninEmailNotVerified({required this.message});
 }

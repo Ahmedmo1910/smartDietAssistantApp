@@ -27,6 +27,7 @@ class AuthRepoImp extends AuthRepo {
         password: password,
         name: name,
       );
+      await user.sendEmailVerification();
       var userEntity = UserEntity(uId: user.uid, name: name, email: email);
       return right(userEntity);
     } on CustomException catch (e) {
@@ -51,8 +52,20 @@ class AuthRepoImp extends AuthRepo {
         email: email,
         password: password,
       );
-
-      return right(UserModel.fromFirebaseUser(user));
+      await user.reload();
+      user = FirebaseAuth.instance.currentUser; 
+      if (user!=null&&user.emailVerified) {
+              return right(UserModel.fromFirebaseUser(user));
+      }
+      else{ 
+         await user?.sendEmailVerification();
+         await FirebaseAuth.instance.signOut();
+        return left(
+          ServerFailure(
+            'Email not verified. Please verify your email before logging in.',
+          ),
+        );
+      }
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
     } catch (e) {

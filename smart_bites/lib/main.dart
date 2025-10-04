@@ -5,6 +5,8 @@ import 'package:smart_bites/core/helper_functions/get_it_helper.dart';
 import 'package:smart_bites/core/presentation/cubits/theme/theme_cubit.dart';
 import 'package:smart_bites/core/services/custom_bloc_observer.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/sign_in_screen.dart';
+import 'package:smart_bites/features/auth/verification/presentation/view/verification_screen.dart';
+import 'package:smart_bites/features/auth/verification/presentation/view/widgets/verification_screen_body.dart';
 import 'package:smart_bites/firebase_options.dart';
 import 'core/helper_functions/on_generate_routes.dart';
 import 'core/presentation/cubits/theme/theme_state.dart';
@@ -44,7 +46,7 @@ class MyApp extends StatelessWidget {
             title: 'SmartBites',
             debugShowCheckedModeBanner: false,
             onGenerateRoute: onGenerateRoute,
-            initialRoute: SignInScreen.routeName,
+            initialRoute: SignInScreen.routeName, 
           );
         },
       ),

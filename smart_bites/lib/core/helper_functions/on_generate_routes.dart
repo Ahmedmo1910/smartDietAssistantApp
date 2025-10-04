@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_bites/features/auth/forget_password/presentation/views/forget_password_screen.dart';
+import 'package:smart_bites/features/auth/verification/presentation/view/verification_screen.dart';
 import 'package:smart_bites/features/home/presentation/views/home_screen.dart';
 import 'package:smart_bites/features/meals%20categories/presentation/views/meals_categories_screen.dart';
 import 'package:smart_bites/features/meals%20description/presentation/views/meals_description_screen.dart';
@@ -24,6 +25,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case ForgetPasswordScreen.routeName:
       return MaterialPageRoute(
         builder: (context) => const ForgetPasswordScreen(),
+      );
+    case VerificationScreen.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const VerificationScreen(),
       );
 
     case SetGoalScreen.routeName:
