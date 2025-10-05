@@ -1,4 +1,3 @@
-
 String? Function(String?)? validationPasswordMethod() {
   return (value) {
     if (value == null || value.isEmpty) {

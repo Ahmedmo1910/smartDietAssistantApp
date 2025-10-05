@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_bites/core/helper_functions/get_it_helper.dart';
 import 'package:smart_bites/core/presentation/cubits/theme/theme_cubit.dart';
-import 'package:smart_bites/features/splash/presentation/views/splash_screen.dart';
+import 'package:smart_bites/core/services/custom_bloc_observer.dart';
+import 'package:smart_bites/features/auth/signin/presentation/views/sign_in_screen.dart';
 import 'package:smart_bites/firebase_options.dart';
 import 'core/helper_functions/on_generate_routes.dart';
 import 'core/presentation/cubits/theme/theme_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- // Bloc.observer = CustomBlocObserver();
+ Bloc.observer = CustomBlocObserver();
    await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
             title: 'SmartBites',
             debugShowCheckedModeBanner: false,
             onGenerateRoute: onGenerateRoute,
-            initialRoute: SplashScreen.routeName,
+            initialRoute: SignInScreen.routeName,
           );
         },
       ),

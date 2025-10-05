@@ -29,7 +29,7 @@ class CustomMealsContainer extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.25),
-              offset: Offset(0, 4),
+              offset: Offset(1, 2),
               blurRadius: 2,
               spreadRadius: 0,
             ),
