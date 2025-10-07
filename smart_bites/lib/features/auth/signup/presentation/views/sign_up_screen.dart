@@ -13,7 +13,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignupCubit(getIt<AuthRepo>()),
+      create: (context) => SignupCubit(getIt<AuthRepo>(),),
       child: Scaffold(
         body: SafeArea(
           child: SignupScreenBlocConsumer(),
@@ -22,4 +22,3 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 }
-

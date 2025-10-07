@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/widgets/social_item_widget.dart';
 
 class SocialRowWidget extends StatelessWidget {
-  const SocialRowWidget({super.key});
+  final void Function()? googleSign;
+  final void Function()? facebookSign;
+  const SocialRowWidget({super.key, this.googleSign, this.facebookSign});
 
   @override
   Widget build(BuildContext context) {
@@ -10,16 +12,21 @@ class SocialRowWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SocialItemWidget(imgPath: 'assets/images/google.png'),
+        GestureDetector(
+          onTap: googleSign,
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: SocialItemWidget(imgPath: 'assets/images/google.png'),
+          ),
         ),
-        SocialItemWidget(imgPath: 'assets/images/facebook.png'),
+        GestureDetector(
+          onTap: facebookSign,
+          child: SocialItemWidget(imgPath: 'assets/images/facebook.png'),
+        ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: SocialItemWidget(imgPath: 'assets/images/mac.jpg'),
         ),
-
       ],
     );
   }

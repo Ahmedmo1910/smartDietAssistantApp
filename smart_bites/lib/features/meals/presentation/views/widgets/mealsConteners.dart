@@ -17,22 +17,22 @@ class mealsContainers extends StatelessWidget {
     required this.cardName,
     required this.cardDescription,
     required this.buttonText,
-    required this.routeName
+    required this.routeName,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.18,
+      height: MediaQuery.of(context).size.height * 0.17,
       margin: EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: Color(0XFFFFFFFF),
+        // color: Color(0XFFFFFFFF),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.25),
-            offset: Offset(0, 4),
+            offset: Offset(1, 4),
             blurRadius: 4,
             spreadRadius: 0,
           ),
@@ -41,12 +41,12 @@ class mealsContainers extends StatelessWidget {
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14),
+            padding: const EdgeInsets.only(right: 14),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.asset(
                 imageUrl,
-                height: 118,
+                height: MediaQuery.of(context).size.height * 0.17,
                 width: 118,
                 fit: BoxFit.fill,
               ),
@@ -64,8 +64,8 @@ class mealsContainers extends StatelessWidget {
                   cardDescription,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style:AppTextStyles.regular14.copyWith(
-                    color: Colors.black45
+                  style: AppTextStyles.regular14.copyWith(
+                    color: Colors.black45,
                   ),
                 ),
                 const SizedBox(height: 8),
