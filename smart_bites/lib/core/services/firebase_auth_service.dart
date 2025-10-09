@@ -46,8 +46,10 @@ class FirebaseAuthService {
     required String name,
   }) async {
     try {
-      final credential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       await credential.user!.updateDisplayName(name);
       await credential.user!.reload();
 
@@ -85,7 +87,7 @@ class FirebaseAuthService {
     required String password,
   }) async {
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      final credential = await _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -118,5 +120,13 @@ class FirebaseAuthService {
       );
       throw CustomException(message: e.toString());
     }
+  }
+
+  Future deleteUser() async {
+    await _firebaseAuth.currentUser!.delete();
+  }
+
+  bool isSignedIn() {
+    return _firebaseAuth.currentUser != null;
   }
 }

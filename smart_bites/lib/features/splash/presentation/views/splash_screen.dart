@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_bites/core/services/firebase_auth_service.dart';
 import 'package:smart_bites/features/auth/signin/presentation/views/sign_in_screen.dart';
 import 'package:smart_bites/features/splash/presentation/views/widgets/splash_screen_body.dart';
 import 'package:smart_bites/main_screen.dart';
@@ -25,7 +26,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void executeNavigation() {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, MainScreen.routeName);
+      var isSignedIn = FirebaseAuthService().isSignedIn();
+      if (!isSignedIn) {
+        Navigator.pushReplacementNamed(context, SignInScreen.routeName);
+      } else {
+        Navigator.pushReplacementNamed(context, MainScreen.routeName);
+      }
     });
   }
 }
